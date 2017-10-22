@@ -1,8 +1,8 @@
-#Dictionary
+# Dictionary
 
 A simple Dictionary App that lets you search for **Meaning**,**Synonyms** and **Antonyms**.
 
-#Objective
+# Objective
 
 The objective of this app is to find meaning for a particular word in any language.
 
@@ -13,11 +13,11 @@ The objective of this app is to find meaning for a particular word in any langua
 ![](https://i.imgur.com/4F3Gu1I.png)
 ![](https://i.imgur.com/8YduKAs.png)
 
-#Challenges
+# Challenges
 
 The only problem was to handle how I wanted to show the data as there was a lot of information to show and a lot was missing too.
 
-#Credits
+# Credits
 
 Built by -
 
