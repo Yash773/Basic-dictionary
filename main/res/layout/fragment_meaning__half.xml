@@ -1,0 +1,65 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/holo_green_dark"
+    android:id="@+id/flMeaningHalf"
+    android:layout_height="match_parent"
+    tools:context="com.example.yash.dictionary.Fragments.Meaning_Half">
+
+    <!-- TODO: Update blank fragment layout -->
+
+<!--
+    <TextView
+        android:text="Meaning"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+-->
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvMeaningHalfSense"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Sense" />
+            <TextView
+                android:id="@+id/tvMeaningHalfPronunciation"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Pronunciation" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMeaningHalfDefination"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Defination" />
+
+        <TextView
+            android:gravity="right"
+            android:id="@+id/tvMeaningHalfPressForMore"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Press for more" />
+    </LinearLayout>
+</FrameLayout>

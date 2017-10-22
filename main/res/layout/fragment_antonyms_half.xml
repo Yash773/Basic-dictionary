@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    android:layout_height="match_parent"
+    tools:context="com.example.yash.dictionary.Fragments.AntonymsHalf">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press Here for Antonyms" />
+
+</FrameLayout>
