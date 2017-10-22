@@ -21,6 +21,6 @@ The only problem was to handle how I wanted to show the data as there was a lot 
 
 Built by -
 
-Yash Aggarwal
-Api Used : https://developer.oxforddictionaries.com/documentation
+* Yash Aggarwal
+* Api Used : https://developer.oxforddictionaries.com/documentation
 
