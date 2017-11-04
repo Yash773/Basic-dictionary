@@ -2,16 +2,17 @@
 <android.support.v7.widget.CardView app:cardCornerRadius="7sp"
     app:cardElevation="7sp"
     android:padding="5sp"
-    android:layout_margin="5sp"
+    android:layout_margin="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    app:cardBackgroundColor="@android:color/holo_red_dark"
+    app:cardBackgroundColor="#dcb26d"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -27,6 +28,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:clickable="true"
             android:id="@+id/tvAntonymsFullWord"
             android:textStyle="bold"
             android:textSize="25sp"

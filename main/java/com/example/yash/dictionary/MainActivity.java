@@ -1,7 +1,9 @@
 package com.example.yash.dictionary;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -42,13 +44,19 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String DEFAULTETWORD = "Enter Word Here";
 
+    public static final String ANTONYM_CLASS = "antonymClass";
+    public static final String SYNONYM_CLASS = "synonymClass";
+    public static final String MAIN_CLASS = "mainClass";
+    String newWord = "";
+    String word = "";
+
     MYMeaningClass mClass = new MYMeaningClass("false");
     MainSynonymsClass mSClass = new MainSynonymsClass("false");
     MainAntonymsClass mAClass = new MainAntonymsClass("false");
 
     public static final String TAG = " tag ";
 
-    ImageButton ibSearch;
+    ImageButton ibSearch,ibSearchWeb;
     EditText etWord;
     FragmentManager fragmentManager;
 
@@ -57,8 +65,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(savedInstanceState!=null)
+        {
+
+            mClass = (MYMeaningClass) savedInstanceState.getSerializable(MAIN_CLASS);
+            mAClass = (MainAntonymsClass) savedInstanceState.getSerializable(ANTONYM_CLASS);
+            mSClass = (MainSynonymsClass) savedInstanceState.getSerializable(SYNONYM_CLASS);
+
+            Log.d(TAG, "onCreate: " + mClass.getID());
+            Log.d(TAG, "onCreate: " + mClass.getDomain());
+            Log.d(TAG, "onCreate: " + mClass.getDefinitions());
+        }
+
 
         etWord = (EditText) findViewById(R.id.etWord);
+
+
+
         etWord.setHint(DEFAULTETWORD);
 
 
@@ -120,16 +143,57 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
 
 
-        ibSearch = (ImageButton) findViewById(R.id.ibSearch);
+        ibSearchWeb = (ImageButton) findViewById(R.id.ibSearchWeb);
 
-        ibSearch.setOnClickListener(new View.OnClickListener() {
+
+        ibSearchWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 final String word = etWord.getText().toString().toLowerCase(Locale.getDefault());
 
+                Log.d(TAG, "web   " + word);
                 if(word.equals(""))
                     Toast.makeText(MainActivity.this, "Please Enter a Word", Toast.LENGTH_SHORT).show();
+
+                else {
+
+                    String query = "https://www.google.com/search?q=" + word;
+
+
+                    Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                    intent.putExtra(SearchManager.QUERY, query);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+        ibSearch = (ImageButton) findViewById(R.id.ibSearch);
+
+        Intent i = getIntent();
+        if(i!=null) {
+            etWord.setText(i.getStringExtra("word"));
+            ibSearch.callOnClick();
+            ibSearch.performClick();
+            ibSearch.setPressed(true);
+            ibSearch.invalidate();
+        }
+
+
+        ibSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                final String word = etWord.getText().toString().toLowerCase(Locale.getDefault());
+                Log.d(TAG, "normal " + word);
+                if(word.equals(""))
+                    Toast.makeText(MainActivity.this, "Please Enter a Word", Toast.LENGTH_SHORT).show();
+
+
 
 
                 APIService.getApi().getMeaning(word).enqueue(new Callback<Meaning>() {
@@ -454,6 +518,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+
+        outState.putSerializable(MAIN_CLASS,mClass);
+        outState.putSerializable(SYNONYM_CLASS,mSClass);
+        outState.putSerializable(ANTONYM_CLASS,mAClass);
+
 
     }
 

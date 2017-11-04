@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.yash.dictionary.MainActivity;
+import com.example.yash.dictionary.POJOS.Antonyms.Antonyms;
 import com.example.yash.dictionary.POJOS.Antonyms.MainAntonymsClass;
 import com.example.yash.dictionary.POJOS.Synonyms.MainSynonymsClass;
 import com.example.yash.dictionary.R;
@@ -57,6 +59,19 @@ public class Antonyms_Full extends AppCompatActivity {
 
 
             holder.Word.setText(mClass.getWord().get(position).toString());
+
+            final String temp = mClass.getWord().get(position).toString();
+
+            holder.Word.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(Antonyms_Full.this, MainActivity.class);
+                    Log.d(TAG, "onClick: " + temp);
+                    i.putExtra("word",temp);
+                    startActivity(i);
+                }
+            });
             holder.Category.setText(mClass.getCategory().get(position).toString());
 
         }
