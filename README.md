@@ -13,14 +13,8 @@ The objective of this app is to find meaning for a particular word in any langua
 ![](https://i.imgur.com/4F3Gu1I.png)
 ![](https://i.imgur.com/8YduKAs.png)
 
-# Challenges
-
-The only problem was to handle how I wanted to show the data as there was a lot of information to show and a lot was missing too.
-
 # Credits
 
-Built by -
-
-* Yash Aggarwal
-* Api Used : https://developer.oxforddictionaries.com/documentation
+Built using -
+* Api : https://developer.oxforddictionaries.com/documentation
 
